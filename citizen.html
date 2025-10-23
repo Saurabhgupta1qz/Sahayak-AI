@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citizen Dashboard - Sahayak AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Sahayak AI - Citizen</h1>
+  <nav>
+    <a href="citizen.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html">Logout</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Welcome, Citizen 👤</h2>
+  <p>Upload your documents and submit service requests.</p>
+
+  <div class="upload-section">
+    <label>📄 Upload Identity Proof:</label>
+    <input type="file" id="identityUpload" accept=".pdf,.png,.jpg,.jpeg" />
+    <label>📝 Upload Application Form:</label>
+    <input type="file" id="applicationUpload" accept=".pdf,.png,.jpg,.jpeg" />
+  </div>
+
+  <div class="service-box">
+    <label>Choose a Service:</label>
+    <select id="serviceSelect">
+      <option value="license">License Renewal</option>
+      <option value="loan">Loan Approval</option>
+      <option value="account">Account Opening</option>
+      <option value="passport">Passport Update</option>
+    </select>
+    <button onclick="submitRequest()">Submit Request</button>
+  </div>
+
+  <div>
+    <h3>My Requests 📋</h3>
+    <ul id="citizenRequests"></ul>
+  </div>
+</section>
+
+<script>
+let citizenRequests = [];
+
+function submitRequest() {
+  const service = document.getElementById("serviceSelect").value;
+  const identity = document.getElementById("identityUpload").files[0];
+  const application = document.getElementById("applicationUpload").files[0];
+
+  if(!identity || !application){ alert("Upload both files!"); return; }
+
+  const request = { service, status: "Pending" };
+  citizenRequests.push(request);
+  updateRequests();
+}
+
+function updateRequests(){
+  const ul = document.getElementById("citizenRequests");
+  ul.innerHTML = "";
+  citizenRequests.forEach(req=>{
+    let color = req.status === "Approved" ? "green" : req.status === "Rejected" ? "red" : "orange";
+    const li = document.createElement("li");
+    li.innerHTML = `${req.service} - <span style="color:${color}; font-weight:bold">${req.status}</span>`;
+    ul.appendChild(li);
+  });
+}
+</script>
+</body>
+</html>

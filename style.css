@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.hidden { display: none; }
+.active { display: block; }
+
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 { margin: 0; font-size: 20px; }
+header nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Login Page */
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.login-box input, .login-box select, .login-box button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.login-box button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-box button:hover {
+  opacity: 0.9;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 20px;
+  display: none;
+}
+
+/* Request list styling */
+.request-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.request-ul li {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.request-ul li button {
+  margin-left: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Button colors */
+.request-ul li button:nth-child(1) { background-color: #f0ad4e; color: #fff; } /* Pending */
+.request-ul li button:nth-child(2) { background-color: #5cb85c; color: #fff; } /* Approved */
+.request-ul li button:nth-child(3) { background-color: #d9534f; color: #fff; } /* Rejected */
+
+.request-ul li button:hover {
+  opacity: 0.85;
+}
+
+/* Upload and Service Section */
+.upload-section, .service-box {
+  margin: 20px 0;
+}
+
+.upload-box {
+  margin-bottom: 15px;
+}
+
+.upload-box label, .service-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer .footer-icons img {
+  width: 25px;
+  margin: 0 5px;
+}

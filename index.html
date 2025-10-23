@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahayak AI Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login Page -->
+  <section id="login-page" class="active">
+    <div class="login-container">
+      <h1>Welcome to <span>Sahayak AI</span></h1>
+      <p>Smart Governance & Digital Assistance</p>
+      <div class="login-box">
+        <label for="roleSelect">Login As:</label>
+        <select id="roleSelect">
+          <option value="citizen">Citizen</option>
+          <option value="official">Official</option>
+        </select>
+        <input type="text" id="username" placeholder="Enter Username" required />
+        <input type="password" id="password" placeholder="Enter Password" required />
+        <button onclick="login()">Login</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navbar -->
+  <header id="navbar" class="hidden">
+    <h1>Sahayak AI Portal</h1>
+    <nav id="nav-links"></nav>
+  </header>
+
+  <!-- Citizen Dashboard -->
+  <section id="citizen-dashboard" class="dashboard">
+    <h2>Welcome, Citizen 👤</h2>
+    <p>Upload your documents and submit service requests easily with Sahayak AI.</p>
+
+    <div class="upload-section">
+      <div class="upload-box">
+        <label>📄 Upload Identity Proof:</label>
+        <input type="file" id="identityUpload" accept=".pdf,.png,.jpg,.jpeg" />
+      </div>
+      <div class="upload-box">
+        <label>📝 Upload Application Form:</label>
+        <input type="file" id="applicationUpload" accept=".pdf,.png,.jpg,.jpeg" />
+      </div>
+    </div>
+
+    <div class="service-box">
+      <label for="serviceSelect">Choose a Service:</label>
+      <select id="serviceSelect">
+        <option value="license">License Renewal</option>
+        <option value="loan">Loan Approval</option>
+        <option value="account">Account Opening</option>
+        <option value="passport">Passport Update</option>
+      </select>
+      <button onclick="submitRequest()">Submit Request</button>
+    </div>
+
+    <div class="request-status">
+      <h3>My Requests 📋</h3>
+      <ul id="citizenRequests" class="request-ul"></ul>
+    </div>
+
+    <div class="eta-section">
+      <h3>📅 Estimated Time of Approval (ETA)</h3>
+      <p><strong><span id="citizenETA">Waiting for official response...</span></strong></p>
+    </div>
+  </section>
+
+  <!-- Official Dashboard -->
+  <section id="official-dashboard" class="dashboard">
+    <h2>Welcome, Official 🏦</h2>
+    <p>Manage citizen requests and track ETA.</p>
+
+    <div class="request-list">
+      <h3>Pending Requests</h3>
+      <ul id="officialRequests" class="request-ul"></ul>
+    </div>
+
+    <div class="eta-box">
+      <h3>ETA Model ⏳</h3>
+      <p>Estimated Time of Approval: <span id="etaTime">0 Days</span></p>
+      <button onclick="generateETA()">Generate ETA</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about-dashboard" class="dashboard">
+    <h2>About Sahayak AI 🤖</h2>
+    <p>Sahayak AI is a smart governance platform designed to simplify public service workflows for citizens and officials alike.</p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🚀 Fast Processing</h3>
+        <p>Quick submission and approval using digital automation.</p>
+      </div>
+      <div class="about-card">
+        <h3>🧠 AI Intelligence</h3>
+        <p>Tracks and predicts ETA to improve transparency.</p>
+      </div>
+      <div class="about-card">
+        <h3>🔐 Safe & Secure</h3>
+        <p>Data protection and encrypted document handling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact-dashboard" class="dashboard">
+    <h2>Contact Us 📞</h2>
+    <form class="contact-form" onsubmit="return submitContact(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <textarea id="message" placeholder="Your Message..." rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>🌟 Sahayak AI — Empowering Smart Governance for Citizens & Officials</p>
+      <div class="footer-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="fb"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="insta"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="twitter"></a>
+      </div>
+      <p>📍 India | 🌐 www.sahayakai.gov.in | 📧 support@sahayakai.in</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

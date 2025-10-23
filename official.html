@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Official Dashboard - Sahayak AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Sahayak AI - Official</h1>
+  <nav>
+    <a href="official.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html">Logout</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Welcome, Official 🏦</h2>
+  <p>Manage citizen requests.</p>
+
+  <div>
+    <h3>Pending Requests</h3>
+    <ul id="officialRequests"></ul>
+  </div>
+</section>
+
+<script>
+let citizenRequests = [
+  { service:"License Renewal", status:"Pending" },
+  { service:"Loan Approval", status:"Pending" }
+];
+
+function updateOfficialRequests(){
+  const ul = document.getElementById("officialRequests");
+  ul.innerHTML = "";
+  citizenRequests.forEach(req=>{
+    const li = document.createElement("li");
+    li.innerText = req.service + " - ";
+    ["Pending","Approved","Rejected"].forEach(status=>{
+      const btn = document.createElement("button");
+      btn.innerText = status;
+      btn.onclick = () => {
+        req.status = status;
+        updateOfficialRequests();
+      };
+      li.appendChild(btn);
+    });
+    ul.appendChild(li);
+  });
+}
+
+updateOfficialRequests();
+</script>
+</body>
+</html>
